@@ -2,6 +2,12 @@
 
 ARKit 의 Face Tracking을 기반으로 사용자의 시선을 감지하고 추적하여 UI 컴포넌트 제어에 대해서 학습하는 공간입니다.
 
+## Reference
+
+본 글은 
+- [virakri/eye-tracking](https://github.com/virakri/eye-tracking-ios-prototype)  
+- [raywenderlich ARKit tutorial](https://www.raywenderlich.com/5491-ar-face-tracking-tutorial-for-ios-getting-started)   
+내용을 참고하여 작성하였습니다.
 
 ## Eye Tracking Basic
 
