@@ -23,10 +23,19 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     @IBOutlet weak var eyeTrackingPositionView: UIView!
     
     
-
+    
     var btnList: [UIButton] = [UIButton]()
     
     var faceNode: SCNNode = SCNNode()
+    
+    // 실제 iPad pro 11인치 의 물리적 크기 17.85 cm x 24.76cm
+    let padScreenSize = CGSize(width: 0.1785, height: 0.2476)
+    // 실제 iPhoneX의 Point Size 1194×834 points
+    let padScreenPointSize = CGSize(width: 834, height: 1194)
+    
+    // 두 시력이 Hitting 되는 즉 스크린에 시선이 향하는 곳의 위치 좌표를 저장 할 배열
+    var eyeLookAtPositionXs: [CGFloat] = []
+    var eyeLookAtPositionYs: [CGFloat] = []
     
     var leftEyeNode: SCNNode = {
         // 1. set Geometry "Cone"
@@ -66,10 +75,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     var targetLeftEyeNode: SCNNode = SCNNode()
     var targetRightEyeNode: SCNNode = SCNNode()
     
-    // 각각의 eyeNode가 targeting 될 Phone의 가상 SCNNode
-    var virtualPhoneNode: SCNNode = SCNNode()
+    // 각각의 eyeNode가 targeting 될 Pad의 가상 SCNNode
+    var virtualPadNode: SCNNode = SCNNode()
     
-    // Phone Screen 위의 가상 SCNNode
+    // Pad Screen 위의 가상 SCNNode
     var virtualScreenNode: SCNNode = {
         let screenGeometry = SCNPlane(width: 1, height: 1)
         // SceneKit이 표면의 앞면과 뒷면을 렌더링 해야하는지 여부를 결정
@@ -95,17 +104,85 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         // Setup SceneGraph (SCNNode 의 순서를 결정)
         /// rootNode -> faceNode -> leftEyeNode -> targetLeftEyeNode
         ///                      -> rightEyeNode -> targetRightEyeNode
-        ///          -> virtualPhoneNode -> virtualScreenNode
+        ///          -> virtualPadNode -> virtualScreenNode
         sceneView.scene.rootNode.addChildNode(faceNode)
-        sceneView.scene.rootNode.addChildNode(virtualPhoneNode)
-        virtualPhoneNode.addChildNode(virtualScreenNode)
+        sceneView.scene.rootNode.addChildNode(virtualPadNode)
+        virtualPadNode.addChildNode(virtualScreenNode)
         faceNode.addChildNode(leftEyeNode)
         faceNode.addChildNode(rightEyeNode)
         leftEyeNode.addChildNode(targetLeftEyeNode)
         rightEyeNode.addChildNode(targetRightEyeNode)
         
-        // Screen에 targeting ehlf
+        // 안구에서 2미터 떨어진 곳에 타겟팅 설정
+        self.targetLeftEyeNode.position.z = 2
+        self.targetRightEyeNode.position.z = 2
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Face Tracking을 위한 session Configuration 생성
+        guard ARFaceTrackingConfiguration.isSupported else {
+            fatalError("이 장치에서는 얼굴 추적 기능이 지원 되지 않습니다.")
+        }
+        let configuration = ARFaceTrackingConfiguration()
+        configuration.isLightEstimationEnabled = true
+        
+        // Run the view's session
+        sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        sceneView.session.pause()
+    }
+    
+}
+
+extension ViewController {
+    // 새로운 ARAnchor가 추가 될때마다 호출 되는 함수
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        
+        faceNode.transform = node.transform
+        guard let faceAnchor = anchor as? ARFaceAnchor else { return }
+        
+        updateAnchor(withFaceAnchor: faceAnchor)
+    }
+    
+    func updateAnchor(withFaceAnchor anchor: ARFaceAnchor) {
+        // 양눈의 변환 행렬 반환
+        //이 속성의 값을 설정하면 노드의 simdRotation, simdOrientation, simdEulerAngles, simdPosition 및 simdScale 속성이 새 변환과 일치하도록 자동으로 변경
+        leftEyeNode.simdTransform = anchor.leftEyeTransform
+        rightEyeNode.simdTransform = anchor.rightEyeTransform
+        var leftEyeHittingAt = CGPoint()
+        var rightEyeHittingAt = CGPoint()
+        
+        let heightCompensation: CGFloat = 812
+        
+        DispatchQueue.main.async {
+            let padScreenEyeRHitTestResults = self.virtualPadNode.hitTestWithSegment(from: self.targetLeftEyeNode.worldPosition, to: self.leftEyeNode.worldPosition, options: nil)
+            
+            let padScreenEyeLHitTestResults = self.virtualPadNode.hitTestWithSegment(from: self.targetRightEyeNode.worldPosition, to: self.rightEyeNode.worldPosition, options: nil)
+            
+            for result in padScreenEyeLHitTestResults {
+                
+                leftEyeHittingAt.x = CGFloat(result.localCoordinates.x) / (self.padScreenSize.width / 2) * self.padScreenPointSize.width
+                
+                leftEyeHittingAt.y = CGFloat(result.localCoordinates.y) / (self.padScreenSize.height / 2) * self.padScreenPointSize.height + heightCompensation
+            }
+            
+            for result in padScreenEyeRHitTestResults {
+                
+                rightEyeHittingAt.x = CGFloat(result.localCoordinates.x) / (self.padScreenSize.width / 2) * self.padScreenPointSize.width
+                
+                rightEyeHittingAt.y = CGFloat(result.localCoordinates.y) / (self.padScreenSize.height / 2) * self.padScreenPointSize.height + heightCompensation
+            }
+            
+            
+            
+        }
         
     }
 }
