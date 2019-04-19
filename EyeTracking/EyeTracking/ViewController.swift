@@ -12,6 +12,7 @@ import ARKit
 import WebKit
 
 class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
+    // MARK: - IBOutlet
     
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var button1: UIButton!
@@ -21,8 +22,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     @IBOutlet weak var selectLabel: UILabel!
     @IBOutlet weak var eyePositionIndicatorView: UIView!
     @IBOutlet weak var eyeTrackingPositionView: UIView!
-    
-    
+    @IBOutlet weak var eyeTargetPositionX: UILabel!
+    @IBOutlet weak var eyeTargetPsoitionY: UILabel!
     
     var btnList: [UIButton] = [UIButton]()
     
@@ -180,9 +181,58 @@ extension ViewController {
                 rightEyeHittingAt.y = CGFloat(result.localCoordinates.y) / (self.padScreenSize.height / 2) * self.padScreenPointSize.height + heightCompensation
             }
             
-            
+            // 값을
+            self.setUpTargetPosition(left: leftEyeHittingAt, right: rightEyeHittingAt)
             
         }
         
+    }
+    
+    
+    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        guard let sceneTransformInfo = sceneView.pointOfView?.transform else {
+            return
+        }
+        virtualPadNode.transform = sceneTransformInfo
+    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+        faceNode.transform = node.transform
+        guard let faceAnchor = anchor as? ARFaceAnchor else {
+            return
+        }
+        updateAnchor(withFaceAnchor: faceAnchor)
+        
+    }
+    
+    // Screen 위의 Eye Trarget Position에 따라 eyeTrackingPositionView를 이동한다.
+    func setUpTargetPosition(left leftEyeHittingAt: CGPoint, right rightEyeHittingAt: CGPoint)  {
+        // X,Y Point 가 유효하게 저장되는 임계점 상수 설정
+        let smoothThresHoldNum = 10
+        self.eyeLookAtPositionXs.append((rightEyeHittingAt.x + leftEyeHittingAt.x) / 2)
+        self.eyeLookAtPositionYs.append(-(rightEyeHittingAt.y + leftEyeHittingAt.y) / 2)
+        self.eyeLookAtPositionXs = Array(self.eyeLookAtPositionXs.suffix(smoothThresHoldNum))
+        self.eyeLookAtPositionYs = Array(self.eyeLookAtPositionYs.suffix(smoothThresHoldNum))
+    
+        let smoothEyeLookAtPositionX = self.eyeLookAtPositionXs.eyePositionEverage
+        let smoothEyeLookAtPositionY = self.eyeLookAtPositionYs.eyePositionEverage
+        
+        // update indicator position
+        self.eyePositionIndicatorView.transform = CGAffineTransform(translationX: smoothEyeLookAtPositionX!, y: smoothEyeLookAtPositionY!)
+        
+       
+    }
+}
+
+extension Collection where Element == CGFloat, Index == Int {
+    var eyePositionEverage: CGFloat? {
+        guard !isEmpty else {
+            return nil
+        }
+        let sum = reduce(CGFloat(0)) { first, second -> CGFloat in
+            return first + second
+        }
+        
+        return sum / CGFloat(count)
     }
 }
