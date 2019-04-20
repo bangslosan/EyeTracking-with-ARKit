@@ -136,7 +136,7 @@ func hitTestWithSegment(from pointA: SCNVector3,
     ```swift
         // 실제 iPad pro 11인치 의 물리적 크기 17.85 cm x 24.76cm
     	let padScreenSize = CGSize(width: 0.1785, height: 0.2476)
-    	// 실제 iPhoneX의 Point Size 1194×834 points
+    	// 실제 iPad 11인치의 Point Size 1194×834 points
     	let padScreenPointSize = CGSize(width: 834, height: 1194)
     ```
     
