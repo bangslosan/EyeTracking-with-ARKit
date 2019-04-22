@@ -224,15 +224,3 @@ extension ViewController {
     }
 }
 
-extension Collection where Element == CGFloat, Index == Int {
-    var eyePositionEverage: CGFloat? {
-        guard !isEmpty else {
-            return nil
-        }
-        let sum = reduce(CGFloat(0)) { first, second -> CGFloat in
-            return first + second
-        }
-        
-        return sum / CGFloat(count)
-    }
-}
