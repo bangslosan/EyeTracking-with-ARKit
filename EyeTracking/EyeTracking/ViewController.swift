@@ -95,7 +95,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         // Set the button Array
         self.btnList = [self.button1, self.button2, self.button3, self.button4]
         
-        
         // Set the SceneView's delegate
         sceneView.delegate = self
         sceneView.session.delegate = self
@@ -181,7 +180,7 @@ extension ViewController {
                 rightEyeHittingAt.y = CGFloat(result.localCoordinates.y) / (self.padScreenSize.height / 2) * self.padScreenPointSize.height + heightCompensation
             }
             
-            // 값을
+            
             self.setUpTargetPosition(left: leftEyeHittingAt, right: rightEyeHittingAt)
             
         }
@@ -220,6 +219,8 @@ extension ViewController {
         // update indicator position
         self.eyePositionIndicatorView.transform = CGAffineTransform(translationX: smoothEyeLookAtPositionX!, y: smoothEyeLookAtPositionY!)
         
+        self.eyeTargetPositionX.text = "\(Int(round(smoothEyeLookAtPositionX! + self.padScreenPointSize.width / 2)))"
+        self.eyeTargetPsoitionY.text = "\(Int(round(smoothEyeLookAtPositionY! + self.padScreenPointSize.height / 2)))"
        
     }
 }
