@@ -143,20 +143,46 @@ func hitTestWithSegment(from pointA: SCNVector3,
     	let padScreenPointSize = CGSize(width: 834, height: 1194)
     ```
     
-    - `[SCNitTestResult]`의 값을 받아 실제 폰위의 좌표계로 변환 하기 위해 변수 두개를 선언하여 변환 한 값을 대입한다.
+    - `[SCNitTestResult]`의 값을 받아 실제 디바이스위 의 좌표계로 변환 하기 위해 변수 두개를 선언하여 변환 한 값을 대입한다.
     
     ```swift
         var leftEyeHittingAt = CGPoint()
         var rightEyeHittingAt = CGPoint()
 	```
+- 스크린 위의 targetingView의 이동을 위해 `DispatchQueue`를 사용한다 (UI의 변경 -> main)
+
+``` swift
+	DispatchQueue.main.async {
     
+    	 self.setUpTargetPosition(left: leftEyeHittingAt, right: rightEyeHittingAt)
+	}
+```       
+
+지속적으로 `setUpTargetPosition()` 메서드를 호출하면서 targetingView의 위치를 변경 시켜준다.
+
+```swift
+// Screen 위의 Eye Trarget Position에 따라 eyeTrackingPositionView를 이동한다.
+    func setUpTargetPosition(left leftEyeHittingAt: CGPoint, right rightEyeHittingAt: CGPoint)  {
+        // X,Y Point 가 유효하게 저장되는 임계점 상수 설정
+        let smoothThresHoldNum = 10
+        // 왼쪽과 오른쪽 시선의 중앙값을 성정
+        self.eyeLookAtPositionXs.append((rightEyeHittingAt.x + leftEyeHittingAt.x) / 2)
+        self.eyeLookAtPositionYs.append(-(rightEyeHittingAt.y + leftEyeHittingAt.y) / 2)
+        // 10개 까지의 값만 
+        self.eyeLookAtPositionXs = Array(self.eyeLookAtPositionXs.suffix(smoothThresHoldNum))
+        self.eyeLookAtPositionYs = Array(self.eyeLookAtPositionYs.suffix(smoothThresHoldNum))
     
-
-
-
-
-
-
+        let smoothEyeLookAtPositionX = self.eyeLookAtPositionXs.eyePositionEverage
+        let smoothEyeLookAtPositionY = self.eyeLookAtPositionYs.eyePositionEverage
+        
+        // update indicator position
+        self.eyePositionIndicatorView.transform = CGAffineTransform(translationX: smoothEyeLookAtPositionX!, y: smoothEyeLookAtPositionY!)
+        
+        self.eyeTargetPositionX.text = "\(Int(round(smoothEyeLookAtPositionX! + self.padScreenPointSize.width / 2)))"
+        self.eyeTargetPsoitionY.text = "\(Int(round(smoothEyeLookAtPositionY! + self.padScreenPointSize.height / 2)))"
+       
+    }
+```
 
 
 
