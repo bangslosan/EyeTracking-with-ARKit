@@ -2,16 +2,10 @@
 
 ARKit 의 Face Tracking을 기반으로 사용자의 시선을 감지하고 추적하여 UI 컴포넌트 제어에 대해서 학습하는 공간입니다.
 
-## Reference
-
-본 글은 
-- [virakri/eye-tracking](https://github.com/virakri/eye-tracking-ios-prototype)  
-- [raywenderlich ARKit tutorial](https://www.raywenderlich.com/5491-ar-face-tracking-tutorial-for-ios-getting-started)   
-- [andrewzimmer906/HeatMapEyeTracking](https://github.com/andrewzimmer906/HeatMapEyeTracking)  
-내용을 참고하여 작성하였습니다.
-
 > P.S : iPad Pro 11인치를 사용하여 Face Tracking을 구현 하였습니다. iPhone과는 다소 차이가 있을 수 있습니다.  
 
+</br>
+<hr>
 
 ## Eye Tracking Basic
 
@@ -189,4 +183,15 @@ func hitTestWithSegment(from pointA: SCNVector3,
 
 - 시선 자체가 굉장히 불안정하고 그로인해 타겟팅이 어렵다.
 - 좌,우 eyeNode의 평균값을 이용해서 타겟팅을 해보았지만 여전히 사용자얼굴과 디바이스 사이의 각도에 의해 추적이 잘 안되는 문제점이 있다. 
+
+<hr>
+</br>
+
+## Reference
+
+본 글은 
+- [virakri/eye-tracking](https://github.com/virakri/eye-tracking-ios-prototype)  
+- [raywenderlich ARKit tutorial](https://www.raywenderlich.com/5491-ar-face-tracking-tutorial-for-ios-getting-started)   
+- [andrewzimmer906/HeatMapEyeTracking](https://github.com/andrewzimmer906/HeatMapEyeTracking)  
+내용을 참고하여 작성하였습니다.
 
