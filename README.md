@@ -12,7 +12,7 @@ ARKit 의 Face Tracking을 기반으로 사용자의 시선을 감지하고 추�
 ![KakaoTalk_Video_2019-04-23-20-55-16](https://user-images.githubusercontent.com/33486820/56579248-a5455000-660a-11e9-9b13-67085d470c8c.gif)
 
 
-### 필요한 SCNNNode
+### 필요한 SCNNode
   - FaceNode : 사용자의 얼굴을 tracking할 Node
   - Eye Node(Left, Right) : 사용자의 face에서 두눈을 Tracking 할 Node
   - TragetEyeNode : Pad View 에 targeting 될 즉 시선이 Pad에 닿을 때의 Node
