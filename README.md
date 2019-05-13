@@ -186,6 +186,7 @@ func hitTestWithSegment(from pointA: SCNVector3,
 - 얼굴과 디바이스 사이각을 이용하여 시선을 아래로 보던가 정면으로 바라 보던가 할때를 보정해야한다.
 - 베지어 곡선을 이용하여 targeting시의 오차를 줄이는 방법 사용
 	- [iOS Bezier curves](https://github.com/SwiftArchitect/BezierCurveView)
+	- [Bezier curves Basic](http://blog.naver.com/PostView.nhn?blogId=ratoa&logNo=220649189397)
 
 <hr>
 </br>
