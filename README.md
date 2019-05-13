@@ -183,7 +183,9 @@ func hitTestWithSegment(from pointA: SCNVector3,
 
 - 시선 자체가 굉장히 불안정하고 그로인해 타겟팅이 어렵다.
 - 좌,우 eyeNode의 평균값을 이용해서 타겟팅을 해보았지만 여전히 사용자얼굴과 디바이스 사이의 각도에 의해 추적이 잘 안되는 문제점이 있다. 
-- 얼굴 각도  부분은 베지어 곡선을 활용하여 개선
+- 얼굴과 디바이스 사이각을 이용하여 시선을 아래로 보던가 정면으로 바라 보던가 할때를 보정해야한다.
+- 베지어 곡선을 이용하여 targeting시의 오차를 줄이는 방법 사용
+	- [iOS Bezier curves](https://github.com/SwiftArchitect/BezierCurveView)
 
 <hr>
 </br>
