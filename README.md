@@ -222,5 +222,6 @@ func hitTestWithSegment(from pointA: SCNVector3,
 - [virakri/eye-tracking](https://github.com/virakri/eye-tracking-ios-prototype)  
 - [raywenderlich ARKit tutorial](https://www.raywenderlich.com/5491-ar-face-tracking-tutorial-for-ios-getting-started)   
 - [andrewzimmer906/HeatMapEyeTracking](https://github.com/andrewzimmer906/HeatMapEyeTracking)  
+- [Apple Developer: ARFaceAnchor](https://developer.apple.com/documentation/arkit/arfaceanchor)
 내용을 참고하여 작성하였습니다.
 
