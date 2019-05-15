@@ -197,8 +197,8 @@ func hitTestWithSegment(from pointA: SCNVector3,
 
 ![image](https://user-images.githubusercontent.com/33486820/57752178-2a5fe880-7723-11e9-82db-6783fb26179c.png)
 
-- 양쪽의 `eyeBlinkValue` 값이 1이 될 경우에 두 눈이 감긴 것이 이때 UI제어가 이루어 져야한다.
-- `eyeBlinkValue`에 변확 발생할시에는 해당 `targetingView`의 움직임을 막아야 한다. 그렇게 해야 눈을 깜을때 `targetingView`가 아래로 내려가버리는 상황이 일어나지 않는다.
+- 양쪽의 `eyeBlinkValue` 값이 1이 될 경우에 두 눈이 감긴 것이고, 이때 UI제어가 이루어 져야한다.
+- `eyeBlinkValue`값의 변화가 발생할때 해당 `targetingView`의 움직임을 막아야 한다. 그렇게 해야 눈을 때 `targetingView`가 아래로 내려가버리는 상황이 일어나지 않는다.
 
 
 <hr>
