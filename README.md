@@ -178,6 +178,18 @@ func hitTestWithSegment(from pointA: SCNVector3,
     }
 ```
 
+<hr>
+</br>
+
+
+## UI Component 제어
+
+### 눈 깜빡임(Eye Blink)로 터치 제어
+- [eyeBlink](https://developer.apple.com/documentation/arkit/arfaceanchor/blendshapelocation/2928262-eyeblinkright)
+
+
+<hr>
+</br>
 
 ## 문제점
 
