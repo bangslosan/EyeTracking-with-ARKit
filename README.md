@@ -187,6 +187,16 @@ func hitTestWithSegment(from pointA: SCNVector3,
 ### 눈 깜빡임(Eye Blink)로 터치 제어
 - [eyeBlink](https://developer.apple.com/documentation/arkit/arfaceanchor/blendshapelocation/2928262-eyeblinkright)
 
+```swift
+  let scaleX = child?.scale.x ?? 1.0
+  // 깜박임을 감지하고 깜박임이 없을 시에는 eyeBlinkValue의 값은 0
+  let eyeBlinkValue = anchor.blendShapes[.eyeBlinkLeft]?.floatValue ?? 0.0
+  
+ // 눈을 깜빡일 시에는 eyeBlinkValue == 1 이 될때 UI를 제어할 수 있다.
+```
+- 양쪽의 `eyeBlinkValue` 값이 1이 될 경우에 두 눈이 감긴 것이 이때 UI제어가 이루어 져야한다.
+- `eyeBlinkValue`에 변확 발생할시에는 해당 `targetingView`의 움직임을 막아야 한다. 그렇게 해야 눈을 깜을때 `targetingView`가 아래로 내려가버리는 상황이 일어나지 않는다.
+
 
 <hr>
 </br>
