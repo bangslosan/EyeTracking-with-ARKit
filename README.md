@@ -209,12 +209,22 @@ func hitTestWithSegment(from pointA: SCNVector3,
 - 시선 자체가 굉장히 불안정하고 그로인해 타겟팅이 어렵다.
 - 좌,우 eyeNode의 평균값을 이용해서 타겟팅을 해보았지만 여전히 사용자얼굴과 디바이스 사이의 각도에 의해 추적이 잘 안되는 문제점이 있다. 
 - 얼굴과 디바이스 사이각을 이용하여 시선을 아래로 보던가 정면으로 바라 보던가 할때를 보정해야한다.
+	- 사용자에게 범위밖의 사이각이 될 시에는 보정 작업을 통해 교정(하지만 추천하지 않음)
 - 베지어 곡선을 이용하여 targeting시의 오차를 줄이는 방법 사용
 	- [iOS Bezier curves](https://github.com/SwiftArchitect/BezierCurveView)
 	- [Bezier curves Basic](http://blog.naver.com/PostView.nhn?blogId=ratoa&logNo=220649189397)
 
 <hr>
 </br>
+
+## challenge
+
+- 삼각함수를 사용한 애니메이션
+- 미리보기 기능
+- 웹툰에 적용 시킬 UI Component 생각해보기
+
+</br>
+<hr>
 
 ## Reference
 
