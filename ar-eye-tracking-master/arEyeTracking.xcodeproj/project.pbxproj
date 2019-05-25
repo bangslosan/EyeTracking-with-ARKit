@@ -1,0 +1,429 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4494DDE92285814D00864E52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4494DDE82285814D00864E52 /* AppDelegate.swift */; };
+		4494DDEB2285814D00864E52 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4494DDEA2285814D00864E52 /* ViewController.swift */; };
+		4494DDEE2285814E00864E52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4494DDEC2285814E00864E52 /* Main.storyboard */; };
+		4494DDF02285814E00864E52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4494DDEF2285814E00864E52 /* Assets.xcassets */; };
+		4494DDF32285814E00864E52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4494DDF12285814E00864E52 /* LaunchScreen.storyboard */; };
+		4494DE00228581B600864E52 /* EyeTrackingSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4494DDFB228581B600864E52 /* EyeTrackingSessionManager.swift */; };
+		4494DE01228581B600864E52 /* EyeTrackingTestUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4494DDFC228581B600864E52 /* EyeTrackingTestUtility.swift */; };
+		4494DE02228581B600864E52 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4494DDFD228581B600864E52 /* Extensions.swift */; };
+		4494DE03228581B600864E52 /* EyeTrackingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4494DDFE228581B600864E52 /* EyeTrackingManager.swift */; };
+		4494DE04228581B600864E52 /* EyeTrackingDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4494DDFF228581B600864E52 /* EyeTrackingDataManager.swift */; };
+		EFD7987D228DC72400CE252F /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD7987C228DC72400CE252F /* CollectionViewCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		39A9442D540B4A2EDA340E74 /* Pods_arEyeTracking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_arEyeTracking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4494DDE52285814D00864E52 /* arEyeTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = arEyeTracking.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4494DDE82285814D00864E52 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4494DDEA2285814D00864E52 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4494DDED2285814E00864E52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4494DDEF2285814E00864E52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4494DDF22285814E00864E52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4494DDF42285814E00864E52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4494DDFB228581B600864E52 /* EyeTrackingSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeTrackingSessionManager.swift; sourceTree = "<group>"; };
+		4494DDFC228581B600864E52 /* EyeTrackingTestUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeTrackingTestUtility.swift; sourceTree = "<group>"; };
+		4494DDFD228581B600864E52 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		4494DDFE228581B600864E52 /* EyeTrackingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeTrackingManager.swift; sourceTree = "<group>"; };
+		4494DDFF228581B600864E52 /* EyeTrackingDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeTrackingDataManager.swift; sourceTree = "<group>"; };
+		B048CA2A11646D280A7442AD /* Pods-arEyeTracking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arEyeTracking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-arEyeTracking/Pods-arEyeTracking.debug.xcconfig"; sourceTree = "<group>"; };
+		EFD7987C228DC72400CE252F /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		F95EC3CE13A3D74FE5AF6D9E /* Pods-arEyeTracking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arEyeTracking.release.xcconfig"; path = "Pods/Target Support Files/Pods-arEyeTracking/Pods-arEyeTracking.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4494DDE22285814D00864E52 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3AF89AA4DAEDB7E7D34DA5B2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				39A9442D540B4A2EDA340E74 /* Pods_arEyeTracking.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4494DDDC2285814D00864E52 = {
+			isa = PBXGroup;
+			children = (
+				4494DDE72285814D00864E52 /* arEyeTracking */,
+				4494DDE62285814D00864E52 /* Products */,
+				4DAF67C8EE235F9AD6092C5B /* Pods */,
+				3AF89AA4DAEDB7E7D34DA5B2 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4494DDE62285814D00864E52 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4494DDE52285814D00864E52 /* arEyeTracking.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4494DDE72285814D00864E52 /* arEyeTracking */ = {
+			isa = PBXGroup;
+			children = (
+				EFD7987B228DC71100CE252F /* View */,
+				4494DDFA2285818700864E52 /* EyeTrackingLibs */,
+				4494DDE82285814D00864E52 /* AppDelegate.swift */,
+				4494DDEA2285814D00864E52 /* ViewController.swift */,
+				4494DDEC2285814E00864E52 /* Main.storyboard */,
+				4494DDEF2285814E00864E52 /* Assets.xcassets */,
+				4494DDF12285814E00864E52 /* LaunchScreen.storyboard */,
+				4494DDF42285814E00864E52 /* Info.plist */,
+			);
+			path = arEyeTracking;
+			sourceTree = "<group>";
+		};
+		4494DDFA2285818700864E52 /* EyeTrackingLibs */ = {
+			isa = PBXGroup;
+			children = (
+				4494DDFD228581B600864E52 /* Extensions.swift */,
+				4494DDFF228581B600864E52 /* EyeTrackingDataManager.swift */,
+				4494DDFE228581B600864E52 /* EyeTrackingManager.swift */,
+				4494DDFB228581B600864E52 /* EyeTrackingSessionManager.swift */,
+				4494DDFC228581B600864E52 /* EyeTrackingTestUtility.swift */,
+			);
+			path = EyeTrackingLibs;
+			sourceTree = "<group>";
+		};
+		4DAF67C8EE235F9AD6092C5B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B048CA2A11646D280A7442AD /* Pods-arEyeTracking.debug.xcconfig */,
+				F95EC3CE13A3D74FE5AF6D9E /* Pods-arEyeTracking.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EFD7987B228DC71100CE252F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EFD7987C228DC72400CE252F /* CollectionViewCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4494DDE42285814D00864E52 /* arEyeTracking */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4494DDF72285814E00864E52 /* Build configuration list for PBXNativeTarget "arEyeTracking" */;
+			buildPhases = (
+				69F52FFA0418C095CB897903 /* [CP] Check Pods Manifest.lock */,
+				4494DDE12285814D00864E52 /* Sources */,
+				4494DDE22285814D00864E52 /* Frameworks */,
+				4494DDE32285814D00864E52 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = arEyeTracking;
+			productName = arEyeTracking;
+			productReference = 4494DDE52285814D00864E52 /* arEyeTracking.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4494DDDD2285814D00864E52 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "장수한";
+				TargetAttributes = {
+					4494DDE42285814D00864E52 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 4494DDE02285814D00864E52 /* Build configuration list for PBXProject "arEyeTracking" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4494DDDC2285814D00864E52;
+			productRefGroup = 4494DDE62285814D00864E52 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4494DDE42285814D00864E52 /* arEyeTracking */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4494DDE32285814D00864E52 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4494DDF32285814E00864E52 /* LaunchScreen.storyboard in Resources */,
+				4494DDF02285814E00864E52 /* Assets.xcassets in Resources */,
+				4494DDEE2285814E00864E52 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		69F52FFA0418C095CB897903 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-arEyeTracking-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4494DDE12285814D00864E52 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4494DE02228581B600864E52 /* Extensions.swift in Sources */,
+				4494DDEB2285814D00864E52 /* ViewController.swift in Sources */,
+				EFD7987D228DC72400CE252F /* CollectionViewCell.swift in Sources */,
+				4494DE04228581B600864E52 /* EyeTrackingDataManager.swift in Sources */,
+				4494DE03228581B600864E52 /* EyeTrackingManager.swift in Sources */,
+				4494DE01228581B600864E52 /* EyeTrackingTestUtility.swift in Sources */,
+				4494DDE92285814D00864E52 /* AppDelegate.swift in Sources */,
+				4494DE00228581B600864E52 /* EyeTrackingSessionManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4494DDEC2285814E00864E52 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4494DDED2285814E00864E52 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4494DDF12285814E00864E52 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4494DDF22285814E00864E52 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4494DDF52285814E00864E52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = "";
+			};
+			name = Debug;
+		};
+		4494DDF62285814E00864E52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = "";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4494DDF82285814E00864E52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B048CA2A11646D280A7442AD /* Pods-arEyeTracking.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5CLQV3W6FV;
+				INFOPLIST_FILE = arEyeTracking/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.youngjun.ARDust;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4494DDF92285814E00864E52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F95EC3CE13A3D74FE5AF6D9E /* Pods-arEyeTracking.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5CLQV3W6FV;
+				INFOPLIST_FILE = arEyeTracking/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.youngjun.ARDust;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4494DDE02285814D00864E52 /* Build configuration list for PBXProject "arEyeTracking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4494DDF52285814E00864E52 /* Debug */,
+				4494DDF62285814E00864E52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4494DDF72285814E00864E52 /* Build configuration list for PBXNativeTarget "arEyeTracking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4494DDF82285814E00864E52 /* Debug */,
+				4494DDF92285814E00864E52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4494DDDD2285814D00864E52 /* Project object */;
+}

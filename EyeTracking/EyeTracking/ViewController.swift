@@ -15,11 +15,12 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     // MARK: - IBOutlet
     
     @IBOutlet var sceneView: ARSCNView!
-    @IBOutlet weak var button1: UIButton!
-    @IBOutlet weak var button2: UIButton!
-    @IBOutlet weak var button3: UIButton!
-    @IBOutlet weak var button4: UIButton!
-    @IBOutlet weak var selectLabel: UILabel!
+    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var faceView: UIView!
+    @IBOutlet var leftEyeView: UIView!
+    @IBOutlet var rightEyeView: UIView!
+    @IBOutlet var leftEyeBallView: UIView!
+    @IBOutlet var rightEyeBallView: UIView!
     @IBOutlet weak var eyePositionIndicatorView: UIView!
     @IBOutlet weak var eyeTrackingPositionView: UIView!
     @IBOutlet weak var eyeTargetPositionX: UILabel!
@@ -30,9 +31,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     var faceNode: SCNNode = SCNNode()
     
     // 실제 iPad pro 11인치 의 물리적 크기 17.85 cm x 24.76cm
-    let padScreenSize = CGSize(width: 0.1785, height: 0.2476)
+    let padScreenSize = CGSize(width: 0.0774, height: 0.1575)
     // 실제 iPhoneX의 Point Size 1194×834 points
-    let padScreenPointSize = CGSize(width: 834, height: 1194)
+    let padScreenPointSize = CGSize(width: 1242/3, height: 2688/3)
     
     // 두 시력이 Hitting 되는 즉 스크린에 시선이 향하는 곳의 위치 좌표를 저장 할 배열
     var eyeLookAtPositionXs: [CGFloat] = []
@@ -93,7 +94,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Set the button Array
-        self.btnList = [self.button1, self.button2, self.button3, self.button4]
         
         // Set the SceneView's delegate
         sceneView.delegate = self
@@ -151,6 +151,7 @@ extension ViewController {
         updateAnchor(withFaceAnchor: faceAnchor)
     }
     
+    
     func updateAnchor(withFaceAnchor anchor: ARFaceAnchor) {
         // 양눈의 변환 행렬 반환
         //이 속성의 값을 설정하면 노드의 simdRotation, simdOrientation, simdEulerAngles, simdPosition 및 simdScale 속성이 새 변환과 일치하도록 자동으로 변경
@@ -158,8 +159,9 @@ extension ViewController {
         rightEyeNode.simdTransform = anchor.rightEyeTransform
         var leftEyeHittingAt = CGPoint()
         var rightEyeHittingAt = CGPoint()
+    
         
-        let heightCompensation: CGFloat = 812
+        let heightCompensation: CGFloat = 312
         
         DispatchQueue.main.async {
             let padScreenEyeRHitTestResults = self.virtualPadNode.hitTestWithSegment(from: self.targetLeftEyeNode.worldPosition, to: self.leftEyeNode.worldPosition, options: nil)
@@ -219,9 +221,43 @@ extension ViewController {
         // update indicator position
         self.eyePositionIndicatorView.transform = CGAffineTransform(translationX: smoothEyeLookAtPositionX!, y: smoothEyeLookAtPositionY!)
         
-        self.eyeTargetPositionX.text = "\(Int(round(smoothEyeLookAtPositionX! + self.padScreenPointSize.width / 2)))"
-        self.eyeTargetPsoitionY.text = "\(Int(round(smoothEyeLookAtPositionY! + self.padScreenPointSize.height / 2)))"
+        let x = Int(round(smoothEyeLookAtPositionX! + self.padScreenPointSize.width / 2))
+        let y = Int(round(smoothEyeLookAtPositionY! + self.padScreenPointSize.height / 2))
+        
+        if  x < 0 {
+            self.eyeTargetPositionX.text = "0"
+        } else {
+            self.eyeTargetPositionX.text = "\(x)"
+        }
        
+        if y < 0 {
+            self.eyeTargetPsoitionY.text = "0"
+        } else {
+            self.eyeTargetPsoitionY.text = "\(y)"
+        }
+        
+        // 두 눈의 좌표 값이 모나리자의 얼굴 영역에 있는지 판별 하는
+        let point = CGPoint(x: x, y: y)
+        if faceView.frame.contains(point) {
+            print("포함")
+        } else {
+            
+            let ratioValue = view.frame.height / leftEyeView.frame.height
+            
+            if smoothEyeLookAtPositionX! / ratioValue < leftEyeView.frame.maxX && smoothEyeLookAtPositionY! / ratioValue < leftEyeView.frame.maxY {
+                 let leftTransform = CGAffineTransform(translationX: smoothEyeLookAtPositionX! / ratioValue , y: smoothEyeLookAtPositionY! / ratioValue)
+                self.leftEyeBallView.transform = leftTransform
+            }
+            
+            if smoothEyeLookAtPositionX! / ratioValue < rightEyeView.frame.maxX && smoothEyeLookAtPositionY! / ratioValue < rightEyeView.frame.maxY {
+                let leftTransform = CGAffineTransform(translationX: smoothEyeLookAtPositionX! / ratioValue , y: smoothEyeLookAtPositionY! / ratioValue)
+                self.rightEyeBallView.transform = leftTransform
+            }
+            
+           
+        }
+        
     }
+    
 }
 
